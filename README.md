@@ -11,12 +11,12 @@ This is a **NestJS** application starter with MongoDB integration. If necessary,
 $ npm install
 ````
 
-### Docker for MongoDB Emulator
-To use the MongoDB Emulator, you can start it using Docker:
+### Spin up Mongo and Redis
+To spin up mongo and redis, you can run the following command:
 ```
-npm run mongo:start
+npm run db:start
 ```
-This will start a MongoDB instance running on your local machine. You can customize the settings in the Docker setup by modifying the docker-compose-mongo.yml if necessary. In the current configuration, you will have a MongoDB container running, which is accessible at localhost:27017.
+This will start a redis instance and a MongoDB instance running on your local machine. You can customize the settings in the Docker setup by modifying the docker-compose.yml if necessary. In the current configuration, you will have a MongoDB container running, which is accessible at localhost:27017.
 This mongo url will be necessary on the .env file, with example as follows:
 
 ```

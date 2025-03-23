@@ -38,7 +38,7 @@ export class UpdateRecordRequestDTO {
     required: false,
   })
   @IsNumber()
-  @Min(0)
+  @Min(1)
   @Max(10000)
   @IsOptional()
   price?: number;

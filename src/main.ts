@@ -1,8 +1,8 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import { AppConfig } from './app.config';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger'; // Import Swagger
-import { ValidationPipe } from '@nestjs/common';
+import { Logger, ValidationPipe } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -22,6 +22,11 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('swagger', app, document);
 
-  await app.listen(AppConfig.port);
+  const appConfig = app.get(ConfigService);
+  const port = appConfig.get<number>('port');
+
+  await app.listen(port);
+
+  Logger.log(`api live at port ${port} 🚀`);
 }
 bootstrap();

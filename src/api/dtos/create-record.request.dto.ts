@@ -36,7 +36,7 @@ export class CreateRecordRequestDTO {
     example: 30,
   })
   @IsNumber()
-  @Min(0)
+  @Min(1)
   @Max(10000)
   price: number;
 
@@ -46,7 +46,7 @@ export class CreateRecordRequestDTO {
     example: 1000,
   })
   @IsInt()
-  @Min(0)
+  @Min(1)
   @Max(100)
   qty: number;
 
